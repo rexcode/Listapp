@@ -1,0 +1,20 @@
+.border{
+	/*border: 1px solid #ebebeb;*/
+}
+body{
+	background-image: url('../images/cloud.jpg');
+	font-style:italic;
+}
+.login{
+	/*color: #ede;*/
+	text-align: center;
+}
+.content{
+	min-height: 450px;
+}
+.logout{
+	float: right;
+}
+.logout:after{
+	clear: both;
+}
