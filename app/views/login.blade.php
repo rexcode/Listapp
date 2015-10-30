@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
-<p class="text-left">
+{{-- <p class="text-left">
     {{ link_to_route('todos.index', 'Back', null, ['class' => 'btn btn-primary btn-small']) }}
-  </p>
+  </p> --}}
 <br>
 {{-- <form class="form-horizontal" action="" method="post"> --}}
 {{-- <h2 class="login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</h2> --}}
