@@ -36,6 +36,7 @@
 		{{-- <h4>{{ link_to_route('todos.show', $list->name, [$list->id]) }}</h4> --}}
 		{{-- <li>{{{ $list->name }}}</li> --}}
 	@endforeach
-		{{ link_to_route('todos.create', 'Create a new list', null, ['class'=>'btn btn-info']) }} <br><br>
-		{{ link_to_route('register', 'Register to Create a list', null, ['class'=>'btn btn-default']) }}
+	<br>
+			{{ link_to_route('todos.create', 'Create a new list', null, ['class'=>'btn btn-info']) }} <br><br>
+{{-- {{ link_to_route('register', 'Register to Create a list', null, ['class'=>'btn btn-default']) }} --}}
 @stop
