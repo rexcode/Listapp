@@ -10,4 +10,11 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+	// $(".hover").hover(function(){
+	// 		// var name = $(this).html().val();
+ //      $(this).html('Click here to enter task.');
+ //      }, function(){
+ //      $(this).html('');
+ //  });
 });

@@ -15,7 +15,8 @@ class TodoListController extends \BaseController {
 	 */
 	public function index()
 	{	
-		$todo_lists = TodoList::all();
+		// $todo_lists = TodoList::all();
+		$todo_lists = TodoList::where('user_id', '=', Auth::user()->id)->get();
 		return View::make('todos.index')->with('todo_lists', $todo_lists);
 	}
 
@@ -57,36 +58,40 @@ class TodoListController extends \BaseController {
 		$name = Input::get('name');
 		$list = new TodoList();
 		$list->name = $name;
+		$list->user_id = Auth::user()->id;
 		$list->save();
-		return Redirect::route('todos.index')->withMessage('List was created! ');
+		return Redirect::route('todos.index')->withMessage('List was created!');
 	}
 
 
 	/**
 	 * Display the specified resource.
-	 *
 	 * @param  int  $id
 	 * @return Response
+	 *
 	 */
 	public function show($id)
 	{	
 		$list = TodoList::findOrFail($id);
+		if($list->user_id == Auth::user()->id)
+		{	
 		$items = $list->listItems()->get();
 		return View::make('todos.show')
 			->withList($list)
 			->withItems($items);
+		} else {
+			return Redirect::route('todos.index')->withMessage('You are not authorised to view this list.');
+		}
 	}
 
-
 	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
+	 * Show the form for editing the specified 
 	 */
 	public function edit($id)
+
 	{	
 		$list = TodoList::findOrFail($id);
+	// *
 		return View::make('todos.edit')->withList($list);
 	}
 
@@ -99,9 +104,9 @@ class TodoListController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		$rules = array(
 		// return Input::all();
 		//Define rules for validation
-		$rules = array(
 			'name' => ['required', 'unique:todo_lists', 'string']
 			);
 

@@ -22,10 +22,22 @@
   </div>
   	{{ $errors->first('password', '<p class="text-center alert alert-danger">:message</p>') }}
   <div class="form-group">
-    <div class="col-sm-offset-6 col-sm-6">
-      <button type="submit"  name = "submit" class="btn btn-default">Login</button>
+    <div class="col-sm-offset-6 col-sm-5">
+      <button type="submit"  name = "submit" class="btn btn-default">Login</button> or
+      <a class="" href="{{ URL::to('/register') }}">Register</a>
     </div>
   </div>
- 	{{ Form::close() }} 
+ 	{{ Form::close() }}
   
+  <hr class= "alert-danger">
+
+  <div class="about text-center">
+    <p>ListApp is a simple list making app.</p>
+    <p>It allows the user make a simple list and add tasks in it.</p>
+    <p>The user can add and edit the list and tasks as required.</p>
+    <p>The user can also edit the task and mark it on completion.</p>
+    <p>Want to use this app. Just <a href="{{ URL::to('/register') }}">register</a> and get started.</p>
+  </div>
+  <hr class= "alert-danger">
+
 @stop

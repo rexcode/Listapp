@@ -10,7 +10,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'listapp';
+$database = 'listapp2';
 
 return array(
 

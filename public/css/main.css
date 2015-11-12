@@ -10,11 +10,36 @@ body{
 	text-align: center;
 }
 .content{
-	min-height: 450px;
+	min-height: 590px;
 }
 .logout{
 	float: right;
 }
 .logout:after{
 	clear: both;
+}
+.about{
+	font-family: Lato;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 25px;
+	color: #655F5F;
+}
+.footer {
+	width: 100%;
+  min-height: 40px; 
+  height: 2.5em; 
+  padding: 1em; 
+  text-align: center; 
+  /*background: #1A400C; */
+  /*background: #080A76;*/
+  background: #222;
+  opacity: 0.45;
+  color: #D7ECFA; 
+}
+.footer a {
+	color: #FAF9F9;
+}
+.navbar-inverse {
+	opacity: 0.85;
 }

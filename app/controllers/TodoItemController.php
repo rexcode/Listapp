@@ -19,7 +19,6 @@ class TodoItemController extends \BaseController {
 		return View::make('items.create')->withTodoList($todo_list);
 	}
 
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -48,6 +47,7 @@ class TodoItemController extends \BaseController {
 		$content = Input::get('content');
 		$item = new TodoItem();
 		$item->content = $content;
+		$item->user_id = Auth::user()->id;
 		$todo_list->listItems()->save($item);
 		return Redirect::route('todos.show', $todo_list->id)->withMessage('Task was created! ');
 	}
@@ -62,12 +62,19 @@ class TodoItemController extends \BaseController {
 	 */
 	public function edit($list_id, $item_id)
 	{
+		// $todo_lists = TodoList::where('user_id', '=', Auth::user()->id)->get();
 		$item = TodoItem::findOrFail($item_id);
+		if($item->id == Auth::user()->id) {
 		return View::make('items.edit')
 			->withTodoListId($list_id)
 			->withTodoItem($item);
+		} 	
+		else 
+		{
+			return Redirect::route('todos.index')->withMessage('You are not authorised to edit this task.');
+		}
+		
 	}
-
 
 	/**
 	 * Update the specified resource in storage.
@@ -96,10 +103,14 @@ class TodoItemController extends \BaseController {
 		}
 		//Create a TodoItem object by find()
 		$item = TodoItem::findOrFail($item_id);
+		if($item->id == Auth::user()->id) {
 		$item->content =  Input::get('content');
 		$item->update();
 		return Redirect::route('todos.show', $list_id)
 			->withMessage('Item was updated! ');
+		} else {
+			
+		}	
 	}
 
 
@@ -112,10 +123,15 @@ class TodoItemController extends \BaseController {
 	 */
 	public function destroy($list_id, $item_id)
 	{
-		$item = TodoItem::findOrFail($item_id)->delete();
+		$item = TodoItem::findOrFail($item_id);
+		if($item->id == Auth::user()->id){
+		$item->delete();	
 		return Redirect::route('todos.show', $list_id)
 			->withMessage('Item deleted!');
-	}
+		} else {
+			return Redirect::route('todos.index')->withMessage('You are not authorised to destroy this item.');
+		}
+	}	
 
 	/**
 	 * Complete the item by adding a completion date

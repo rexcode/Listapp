@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Layout</title>
 	{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> --}}
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 	{{-- asset() is a half solution as it generates only a uri --}}
 	{{-- 	<link rel="stylesheet" href="{{{ asset('css/main.css') }}}"> --}}
@@ -17,29 +18,29 @@
 		
 <div class="navbar navbar-inverse navbar-static-top">
 	<div class="container">
-	<a class="navbar-brand" href="/todos">ListApp</a>
-	<ul class="nav navbar-nav navbar-right">
-		<li class="">
-			<a href="/">Home</a>
-		</li>
-		
-		@if(Auth::check())
-			<li><a href="/todos/create">Create a List</a></li>
-			<li><a href="/logout">Logout</a></li>
-		{{-- @else --}}
-			{{-- <li><a href="/register">Login</a></li> --}}
-		@endif
+		<a class="navbar-brand" href="/todos">ListApp</a>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="">
+				<a href="/">Home</a>
+			</li>
+			
+			@if(Auth::check())
+				<li><a href="/todos/create">Create a List</a></li>
+				<li><a href="/logout">Logout</a></li>
+			{{-- @else --}}
+				{{-- <li><a href="/register">Login</a></li> --}}
+			@endif
 
-		@if(Auth::guest())
-			<li><a href="/register">Register</a></li>
-			<li><a href="/login">Login</a></li>
-		@endif
-		{{-- <li>
-			<a href="/register">Register</a>
-		</li>
-		<li><a href="/login"></a></li> --}}
-	</ul>
-</div>
+			@if(Auth::guest())
+				<li><a href="/register">Register</a></li>
+				<li><a href="/login">Login</a></li>
+			@endif
+			{{-- <li>
+				<a href="/register">Register</a>
+			</li>
+			<li><a href="/login"></a></li> --}}
+		</ul>
+	</div>
 </div>
 
 	@if(Session::has('message'))
@@ -49,7 +50,8 @@
 	@endif
 
 <div class="container border">
-			<div class="content">
+		<div class="row">
+			<div class="col-md-12 content">
 				{{-- <div class="logout">
 					@if(Auth::check())
 					
@@ -59,12 +61,18 @@
 				</div> --}}
 
 				@yield('content')
-
-			</div>
-			<div class="col-sm-12 text-center">
-				<h4>Rexappz - &copy; {{{ date('Y') }}}</h4>
 			</div>
 		</div>
+</div>
+
+{{-- <div id="footer" class="text-center">
+	<h4>Rexappz - &copy; {{{ date('Y') }}}</h4>
+</div>--}}
+<div class="footer">
+	&copy; - <?php echo date('Y', time()); ?>
+	<a href="https://github.com/rexcode">Rexcode</a> - Vicky Patel.
+<br><br><br>
+</div>
 
 		{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') }}
 		{{ HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') }}
