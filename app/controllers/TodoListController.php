@@ -31,7 +31,6 @@ class TodoListController extends \BaseController {
 		return View::make('todos.create');
 	}
 
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -112,7 +111,7 @@ class TodoListController extends \BaseController {
 		$rules = array(
 		// return Input::all();
 		//Define rules for validation
-			'name' => ['required', 'unique:todo_lists', 'string']
+			'name' => ['required', 'unique:todo_lists', 'alpha_dash']
 			);
 
 		// pass rules and input to validator class

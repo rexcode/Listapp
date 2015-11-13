@@ -28,7 +28,7 @@ class AddUserIdToTodoItemsTable extends Migration {
 	{
 		Schema::table('todo_items', function(Blueprint $table)
 		{
-			// $table->dropColumn('user_id');
+			$table->dropColumn('user_id');
 		});
 	}
 

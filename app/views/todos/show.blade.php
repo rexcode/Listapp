@@ -17,26 +17,31 @@
 					<h4>{{{ $item->content }}}</h4>
 					@endif
 				</div>
+
+				@if ($item->completed_on == NULL)
 				{{-- show item edit button --}}
 				<div class = "col-md-1 text-center">
 					{{ link_to_route('todos.items.edit', 'edit', [$list->id, $item->id], ['class' => 'btn btn-primary btn-small']) }}
 				</div>
 				{{-- show item completion button --}}
-				@if ($item->completed_on == NULL)
+				
 				<div class="col-md-2 text-center">	
 					{{ Form::model($item, ['method' => 'patch', 'route' => ['todos.items.complete', $list->id, $item->id] ]) }}
 						{{ Form::button('complete', ['class' => 'btn btn-warning', 'type' => 'submit']) }}
 					{{ Form::close() }}
 			</div>
 				@else
-				<div class="col-md-2 text-center">
+				<div class="col-md-1 text-center">
+					<p class="btn btn-primary btn-small"><del>edit</del></p>
+				</div>
+				<div class="col-md-2 text-center">	
 					<p class="btn btn-info"><del>complete</del></p>			
 				</div>
 				@endif
 				{{-- show item delete button --}}
 				<div class="col-md-1 text-center">	
 						{{ Form::model($item, ['method' => 'delete', 'route' => ['todos.items.destroy', $list->id, $item->id] ]) }}
-							{{ Form::button('Destroy', ['class' => 'btn btn-danger', 'type' => 'submit']) }}
+							{{ Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) }}
 						{{ Form::close() }}
 				</div>
 				<div class="col-md-6">

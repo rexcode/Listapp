@@ -2,6 +2,7 @@
 	/*border: 1px solid #ebebeb;*/
 }
 body{
+  padding-top: 70px; 
 	background-image: url('../images/cloud.jpg');
 	font-style:italic;
 }
@@ -34,7 +35,7 @@ body{
   /*background: #1A400C; */
   /*background: #080A76;*/
   background: #222;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.55);
   /*opacity: 0.45;*/
   color: #D7ECFA; 
 }
@@ -49,7 +50,14 @@ body{
   /*color: #9d9d9d;*/
   color: #C0BEBE;
 }
-.navbar-inverse .navbar-text {
+.navbar-inverse {
   /*color: #9d9d9d;*/
 	color: #C0BEBE;
+	/*color: #fff;*/
+}
+.footer span, .footer a {
+	color: #eee;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: #bcbcbc;
 }

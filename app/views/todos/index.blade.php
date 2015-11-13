@@ -7,6 +7,11 @@
 			<p class="text-center"><small >(click on the list name to add tasks to the list)</small></p>
 		</div>
 		<div class="panel-body">
+			
+		@if(count($todo_lists) == 0) 
+				<p class="text-center">You have no lists.</p> 
+			@endif
+				
 			@foreach($todo_lists as $list )
 			<div class="row">
 				{{-- show the list name --}}
@@ -21,10 +26,11 @@
 				{{-- show list delete/destroy button --}}
 				<div class="col-md-1 text-center">
 					{{ Form::model($list, ['method' => 'delete', 'route' => ['todos.destroy', $list->id] ]) }}
-					{{ Form::button('Destroy', ['class' => 'btn btn-danger', 'type' => 'submit']) }}
+					{{ Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) }}
 					{{ Form::close() }}
 				</div>
 				<div class="col-md-4">
+
 				</div>
 			</div>
 			@endforeach
