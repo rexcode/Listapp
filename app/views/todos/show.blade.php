@@ -7,6 +7,11 @@
 			<h2 class="text-center">List - {{{ $list->name }}}</h2>
 		</div>
 		<div class="panel-body">
+
+			@if(count($items) == 0) 
+				<p class="text-center">You have no tasks.</p> 
+			@endif
+
 			@foreach($items as $item)
 			<div class="row">
 				{{-- Show item content--}}
@@ -54,7 +59,7 @@
 	
 	<p class="text-center">
 	{{ link_to_route('todos.index', 'Back', null, ['class' => 'btn btn-info btn-small']) }}
-	{{ link_to_route('todos.items.create', 'Create a new item', [$list->id], ['class'=>'btn btn-success']) }}
+	{{ link_to_route('todos.items.create', 'Create a new task', [$list->id], ['class'=>'btn btn-success']) }}
 	{{-- triple curly braces will escape  the link <a> tag --}}
 	
 </p>

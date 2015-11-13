@@ -30,9 +30,9 @@
 
   <div class="about text-center">
     <p>ListApp is a simple list making app.</p>
-    <p>It allows the user make a simple list and add tasks in it.</p>
-    <p>The user can add and edit the list and tasks as required.</p>
-    <p>The user can also edit the task and mark it on completion.</p>
+    <p>It allows the user to make a simple list and add tasks in it.</p>
+    <p>The user can create, edit and delete the lists and tasks as required.</p>
+    <p>The user can also mark the task on completion.</p>
     <p>Want to use this app. Just <a href="{{ URL::to('/register') }}">register</a> and get started.</p>
   </div>
   <hr class= "alert-danger">

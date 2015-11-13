@@ -17,9 +17,6 @@
 	<div class="container">
 		<a class="navbar-brand" href="/todos">ListApp</a>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="">
-				<a href="/">Home</a>
-			</li>
 			
 			@if(Auth::check())
 				<li><a href="/todos">My Lists</a></li>
@@ -28,6 +25,7 @@
 			@endif
 
 			@if(Auth::guest())
+				{{-- <li><a href="/">Home</a></li> --}}
 				<li><a href="/register">Register</a></li>
 				<li><a href="/login">Login</a></li>
 			@endif

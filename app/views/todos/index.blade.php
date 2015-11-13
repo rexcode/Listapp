@@ -8,7 +8,7 @@
 		</div>
 		<div class="panel-body">
 			
-		@if(count($todo_lists) == 0) 
+			@if(count($todo_lists) == 0) 
 				<p class="text-center">You have no lists.</p> 
 			@endif
 				
