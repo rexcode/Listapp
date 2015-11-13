@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Layout</title>
+	<title>ListApp</title>
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
 	{{-- asset() is a half solution as it generates only a uri --}}
