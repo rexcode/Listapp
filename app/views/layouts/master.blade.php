@@ -25,8 +25,9 @@
 			</li>
 			
 			@if(Auth::check())
-				<li><a href="/todos/create">Create a List</a></li>
-				<li><a href="/logout">Logout</a></li>
+				<li><a href="/todos">My Lists</a></li>
+				<li><a href="/todos/create">Create a new List</a></li>
+				<li><a href="/logout">Logout ({{{ Auth::user()->username }}})</a></li>
 			{{-- @else --}}
 				{{-- <li><a href="/register">Login</a></li> --}}
 			@endif
@@ -44,7 +45,7 @@
 </div>
 
 	@if(Session::has('message'))
-	<div class="alert alert-success alert-dismissable">
+	<div class=" text-center alert alert-success alert-dismissable">
 		{{ Session::get('message') }}
 	</div>
 	@endif
@@ -68,15 +69,16 @@
 {{-- <div id="footer" class="text-center">
 	<h4>Rexappz - &copy; {{{ date('Y') }}}</h4>
 </div>--}}
+
 <div class="footer">
-	&copy; - <?php echo date('Y', time()); ?>
+	&copy; - {{{ date('Y', time()) }}}
 	<a href="https://github.com/rexcode">Rexcode</a> - Vicky Patel.
 <br><br><br>
 </div>
 
-		{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') }}
-		{{ HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') }}
-		{{ HTML::script('js/app.js') }}
+	{{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') }}
+	{{ HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') }}
+	{{ HTML::script('js/app.js') }}
 
 </body>
 </html>

@@ -64,7 +64,7 @@ class TodoItemController extends \BaseController {
 	{
 		// $todo_lists = TodoList::where('user_id', '=', Auth::user()->id)->get();
 		$item = TodoItem::findOrFail($item_id);
-		if($item->id == Auth::user()->id) {
+		if($item->user_id == Auth::user()->id) {
 		return View::make('items.edit')
 			->withTodoListId($list_id)
 			->withTodoItem($item);
@@ -101,18 +101,17 @@ class TodoItemController extends \BaseController {
 				->withErrors($validator)
 				->withInput();	
 		}
-		//Create a TodoItem object by find()
+		//Create a TodoItem object by using find()
 		$item = TodoItem::findOrFail($item_id);
-		if($item->id == Auth::user()->id) {
+		if($item->user_id == Auth::user()->id) {
 		$item->content =  Input::get('content');
 		$item->update();
 		return Redirect::route('todos.show', $list_id)
 			->withMessage('Item was updated! ');
 		} else {
-			
+			return Redirect::route('todos.index')->withMessage('You are not authorised to edit this task.');
 		}	
 	}
-
 
 	/**
 	 * Remove the specified resource from storage.
@@ -124,7 +123,7 @@ class TodoItemController extends \BaseController {
 	public function destroy($list_id, $item_id)
 	{
 		$item = TodoItem::findOrFail($item_id);
-		if($item->id == Auth::user()->id){
+		if($item->user_id == Auth::user()->id){
 		$item->delete();	
 		return Redirect::route('todos.show', $list_id)
 			->withMessage('Item deleted!');

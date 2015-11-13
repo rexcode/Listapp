@@ -1,10 +1,10 @@
 @extends('layouts.master')
 @section('content')
 
-<div class="container">
+{{-- <div class="container"> --}}
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h2 class="text-center">{{{ $list->name }}}</h2>
+			<h2 class="text-center">List - {{{ $list->name }}}</h2>
 		</div>
 		<div class="panel-body">
 			@foreach($items as $item)
@@ -45,12 +45,15 @@
 
 			@endforeach
 		</div>
-	</div>		
-
+		<div class="panel-footer">
+	
 	<p class="text-center">
 	{{ link_to_route('todos.index', 'Back', null, ['class' => 'btn btn-info btn-small']) }}
 	{{ link_to_route('todos.items.create', 'Create a new item', [$list->id], ['class'=>'btn btn-success']) }}
 	{{-- triple curly braces will escape  the link <a> tag --}}
 	
 </p>
+</div>
+
+</div>	
 @stop

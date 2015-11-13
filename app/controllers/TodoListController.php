@@ -54,7 +54,6 @@ class TodoListController extends \BaseController {
 			// return $messages;
 			return Redirect::route('todos.create')->withErrors($validator)->withInput();	
 		}
-
 		$name = Input::get('name');
 		$list = new TodoList();
 		$list->name = $name;
@@ -92,7 +91,13 @@ class TodoListController extends \BaseController {
 	{	
 		$list = TodoList::findOrFail($id);
 	// *
-		return View::make('todos.edit')->withList($list);
+		if ($list->user_id == Auth::user()->id)
+		{
+			return View::make('todos.edit')->withList($list);
+		}	else {
+			return Redirect::route('todos.index')->withMessage('You are not authorised to edit this list.');
+		}
+		
 	}
 
 
@@ -123,9 +128,14 @@ class TodoListController extends \BaseController {
 
 		$name = Input::get('name');
 		$list = TodoList::findOrFail($id);
-		$list->name = $name;
-		$list->update();
-		return Redirect::route('todos.index')->withMessage('List was updated! ');
+		if($list->user_id == Auth::user()->id)
+		{
+			$list->name = $name;
+			$list->update();
+			return Redirect::route('todos.index')->withMessage('List was updated! ');
+		} else {
+			return Redirect::route('todos.index')->withMessage('You are not authorised to update this list.');
+		}
 	}
 		
 	/**
@@ -135,11 +145,15 @@ class TodoListController extends \BaseController {
 	 * @return Response
 	 */
 	public function destroy($id)
-	{
-		// $list =
-		TodoList::findOrFail($id)->delete();
-		return Redirect::route('todos.index')->withMessage("List was deleted.");
+	{	// $list =
+		$list=TodoList::findOrFail($id);
+		if($list->user_id == Auth::user()->id)
+		{
+			$list->delete();
+			return Redirect::route('todos.index')->withMessage("List was deleted.");
+		} else {
+			return Redirect::route('todos.index')->withMessage('You are not authorised to destroy this list.');
+		}
 	}
-
 
 }

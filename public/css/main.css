@@ -10,7 +10,7 @@ body{
 	text-align: center;
 }
 .content{
-	min-height: 590px;
+	min-height: 579px;
 }
 .logout{
 	float: right;
@@ -34,12 +34,22 @@ body{
   /*background: #1A400C; */
   /*background: #080A76;*/
   background: #222;
-  opacity: 0.45;
+  background: rgba(34,34,34,.5);
+  /*opacity: 0.45;*/
   color: #D7ECFA; 
 }
 .footer a {
 	color: #FAF9F9;
 }
 .navbar-inverse {
-	opacity: 0.85;
+	background-color: rgba(34,34,34,0.7);
+	/*opacity: 0.85;*/
+}
+.navbar-inverse .navbar-brand {
+  /*color: #9d9d9d;*/
+  color: #C0BEBE;
+}
+.navbar-inverse .navbar-text {
+  /*color: #9d9d9d;*/
+	color: #C0BEBE;
 }
