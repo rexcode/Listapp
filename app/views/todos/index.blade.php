@@ -15,10 +15,13 @@
 			@foreach($todo_lists as $list )
 			<div class="row">
 				{{-- show the list name --}}
-				<div class="col-md-2  col-md-offset-4 text-center">
-					<h4>{{ link_to_route('todos.show', $list->name, [$list->id], ['class' => 'hover']) }}</h4>
+				<div class="col-md-2 col-md-offset-4 text-center hover-list-name">
+					<h4>{{ link_to_route('todos.show', $list->name, [$list->id], ['class' => 'hover', 'title' => 'click to see/add tasks']) }}</h4>
 					{{-- <li>{{ $list->name }}</li> --}}
 				</div>
+				{{-- empty div for hover --}}
+				{{-- <div class="hover-effect col-md-2 text-center">
+				</div> --}}
 				{{-- show list edit button --}}
 				<div class = "col-md-1 text-center">
 					{{ link_to_route('todos.edit', 'edit', [$list->id], ['class' => 'btn btn-primary btn-small']) }}
@@ -29,7 +32,7 @@
 					{{ Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) }}
 					{{ Form::close() }}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 
 				</div>
 			</div>

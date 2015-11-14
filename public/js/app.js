@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	// $('div').css('background', 'red');
-	//Confirm all Deletions
 	$('form').submit(function(event){
 		var method = $(this).children(':hidden[name=_method]').val();
 		if ($.type(method) !== 'udefined' && method == 'DELETE') {
@@ -11,10 +9,11 @@ $(document).ready(function(){
 		}
 	});
 
-	// $(".hover").hover(function(){
-	// 		// var name = $(this).html().val();
- //      $(this).html('Click here to enter task.');
- //      }, function(){
- //      $(this).html('');
- //  });
+	// $('.hover-list-name').hover(
+	// 	function(){
+	// 		$('.hover-effect').append($('<span>"click to see / add tasks"</span>'));
+	// 	}, function(){
+	// 		$('.hover-effect').find("span:last").remove();
+	// 	}
+	// );
 });
