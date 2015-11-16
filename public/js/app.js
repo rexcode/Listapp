@@ -16,4 +16,7 @@ $(document).ready(function(){
 	// 		$('.hover-effect').find("span:last").remove();
 	// 	}
 	// );
+	$('[data-toggle="tooltip"]').tooltip();
+	$('.hover-list-name').tooltip();
+
 });

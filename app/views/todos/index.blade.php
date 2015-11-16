@@ -16,7 +16,7 @@
 			<div class="row">
 				{{-- show the list name --}}
 				<div class="col-md-2 col-md-offset-4 text-center hover-list-name">
-					<h4>{{ link_to_route('todos.show', $list->name, [$list->id], ['class' => 'hover', 'title' => 'click to see/add tasks']) }}</h4>
+					<h4>{{ link_to_route('todos.show', $list->name, [$list->id], ['class' => 'hover', 'title' => 'click to see/add tasks', 'data-toggle' => 'tooltip', 'data-animation'=> 'true', 'data-delay' => '100', 'data-placement' => 'top']) }}</h4>
 					{{-- <li>{{ $list->name }}</li> --}}
 				</div>
 				{{-- empty div for hover --}}
@@ -33,9 +33,9 @@
 					{{ Form::close() }}
 				</div>
 				<div class="col-md-3">
-
 				</div>
 			</div>
+		<hr>
 			@endforeach
 		</div>
 	

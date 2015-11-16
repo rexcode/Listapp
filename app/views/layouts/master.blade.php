@@ -50,7 +50,7 @@
 
 <div class="footer text-center">
 	<span>&copy; - {{{ date('Y', time()) }}}</span>
-	<a href="https://github.com/rexcode" target="_blank" title="Github profile">Rexcode</a>
+	<a href="https://rexcode.github.io" target="_blank" title="Github Page">Rexcode</a>
 	<a href="https://github.com/rexcode/listapp/" target="_blank"><img src="{{ asset('images/github10.png') }}" alt="Github icon" title="Github repository of this project " width="12px" height="12px"></a>
 </div>
 
