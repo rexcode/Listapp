@@ -28,6 +28,24 @@ Route::get('/login', function(){
 });
 
 Route::post('/login', function(){
+
+	//Define rules for validation
+		$rules = array(
+			'username' => ['required', 'string'],
+			'password' => ['required']
+			);
+
+		// pass rules and input to validator class
+		$validator = Validator::make(Input::all(), $rules);
+
+		// test if input fails
+		if ($validator->fails()) 
+		{	
+			// $messages = $validator->messages();
+			// return $messages;
+			return Redirect::to('login')->withErrors($validator)->withInput();	
+		}
+
 	$credentials = Input::only('username', 'password');
 	if(Auth::attempt($credentials)){
 		return Redirect::intended('/');
