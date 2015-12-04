@@ -2,10 +2,26 @@
 	/*border: 1px solid #ebebeb;*/
 }
 body{
-  padding-top: 70px; 
-	background-image: url('../images/cloud.jpg');
+   
+	
 	font-style:italic;
 }
+.bg{
+	padding-top: 70px;
+	height: 700px;
+	/*background-image: url('../images/cloud.jpg');*/
+	background: url('https://source.unsplash.com/FIKD9t5_5zQ/1600x900');
+}
+
+@media only screen and (min-width : 1367px) {
+	.bg{
+		height: 1050px;
+		background: url('https://source.unsplash.com/FIKD9t5_5zQ/1600x1050');
+	}
+
+}
+
+
 .login{
 	/*color: #ede;*/
 	text-align: center;
