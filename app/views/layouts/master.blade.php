@@ -48,6 +48,7 @@
 			</div>
 	</div>
 </div>
+
 	<div class="footer text-center">
 		<span>&copy; - {{{ date('Y', time()) }}}</span>
 		<a href="https://rexcode.github.io" target="_blank" title="Github Page">Rexcode</a>
